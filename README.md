@@ -96,10 +96,9 @@ kr3-responsive-shop/
 
 ```text
 lighthouse/
-├── accessibility-report.png    — сводный скриншот
-├── accessibility-index.png
-├── accessibility-catalog.png
-└── accessibility-order.png
+├── accessibility-report.png    — главная страница (index.html)
+├── accessibility-catalog.png   — каталог (catalog.html)
+└── accessibility-order.png     — форма заявки (order.html)
 ```
 
 Перед проверкой Lighthouse выполнена ручная и автоматическая проверка тех же правил (контраст текста, `label` у полей, `alt` у изображений, имена кнопок и ссылок, порядок заголовков, ссылки ARIA на существующие `id`, размер кликабельных зон) на ширинах 360 и 1440px — замечаний нет. Lighthouse не заменяет ручную проверку: навигация с клавиатуры (Tab, Esc, работа модального окна) проверена вручную.
