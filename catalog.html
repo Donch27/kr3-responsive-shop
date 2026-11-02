@@ -3,153 +3,392 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог хоккейной экипировки IceForce: защита, инвентарь и одежда с фильтрами по категориям и цене.">
+  <meta name="theme-color" content="#193d35">
   <title>Каталог — IceForce</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
 <header class="site-header">
-  <div class="site-header__inner">
+  <div class="site-header__inner container">
     <a class="site-header__logo" href="index.html">IceForce</a>
-    <nav class="site-nav" aria-label="Основная навигация">
+
+    <button class="site-header__menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="site-header__menu-icon" aria-hidden="true"></span>
+      Меню
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
       <ul class="site-nav__list">
         <li><a class="site-nav__link" href="index.html">Главная</a></li>
-        <li><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+        <li><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a></li>
+        <li><a class="site-nav__link" href="order.html">Оформить заявку</a></li>
+        <li><a class="site-nav__link" href="size-guide.html">Подбор экипировки</a></li>
+        <li><a class="site-nav__link" href="delivery.html">Доставка и оплата</a></li>
         <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-        <li><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
-        <li><a class="site-nav__link" href="index.html#popular">Товары</a></li>
-        <li><a class="site-nav__link" href="index.html#contacts">Обратная связь</a></li>
-        <li><a class="site-nav__link" href="delivery.html">Доставка и оплата</a></li><li><a class="site-nav__link" href="size-guide.html">Подбор экипировки</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
   <div class="container">
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a class="breadcrumbs__link" href="index.html">Главная</a>
-      <span class="breadcrumbs__current">Каталог</span>
-    </nav>
+  <nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <ol class="breadcrumbs__list">
+      <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
+      <li class="breadcrumbs__item" aria-current="page">Каталог</li>
+    </ol>
+  </nav>
 
-    <section class="catalog-intro">
+    <header class="page-intro">
       <h1>Каталог хоккейной экипировки</h1>
       <p>Экипировка, защита и инвентарь для тренировок и матчей.</p>
-    </section>
+    </header>
 
-    <section class="catalog-layout">
-      <aside class="catalog-filters">
-        <h2>Категории</h2>
-        <form class="filters-form" action="catalog.html" method="get">
-          <fieldset>
-            <legend>Категория</legend>
-            <label><input type="checkbox" name="category" value="all"> Все товары</label>
-            <label><input type="checkbox" name="category" value="clothing"> Одежда</label>
-            <label><input type="checkbox" name="category" value="protection"> Защита</label>
-            <label><input type="checkbox" name="category" value="equipment"> Инвентарь</label>
+    <div class="catalog-layout">
+      <aside class="catalog-filters" aria-labelledby="filters-title">
+        <div class="catalog-filters__header">
+          <h2 class="catalog-filters__title" id="filters-title">Фильтры</h2>
+          <button class="button button--secondary catalog-filters__toggle" type="button" aria-expanded="false" aria-controls="filters-form">Показать фильтры</button>
+        </div>
+
+        <form class="filters-form" id="filters-form" action="catalog.html" method="get">
+          <fieldset class="filters-form__group">
+            <legend class="filters-form__legend">Категория</legend>
+            <label class="filters-form__option">
+              <input type="checkbox" name="category" value="clothing">
+              Одежда
+              <span class="filters-form__count">(3)</span>
+            </label>
+            <label class="filters-form__option">
+              <input type="checkbox" name="category" value="protection">
+              Защита
+              <span class="filters-form__count">(7)</span>
+            </label>
+            <label class="filters-form__option">
+              <input type="checkbox" name="category" value="equipment">
+              Инвентарь
+              <span class="filters-form__count">(2)</span>
+            </label>
           </fieldset>
-          <fieldset>
-            <legend>Цена, руб.</legend>
-            <label for="price-from">От</label>
-            <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
-            <label for="price-to">До</label>
-            <input id="price-to" name="price-to" type="number" min="0" placeholder="30000">
+
+          <fieldset class="filters-form__group">
+            <legend class="filters-form__legend">Цена, ₽</legend>
+            <div class="filters-form__range">
+              <div class="order-form__field">
+                <label class="order-form__label" for="price-from">От</label>
+                <input class="order-form__input" id="price-from" name="price-from" type="number" inputmode="numeric" min="0" step="100" placeholder="0">
+              </div>
+              <div class="order-form__field">
+                <label class="order-form__label" for="price-to">До</label>
+                <input class="order-form__input" id="price-to" name="price-to" type="number" inputmode="numeric" min="0" step="100" placeholder="30000">
+              </div>
+            </div>
           </fieldset>
-          <button class="button button--primary" type="submit">Применить</button>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="sort">Сортировка</label>
+            <select class="order-form__select" id="sort" name="sort">
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Сначала дешевле</option>
+              <option value="price-desc">Сначала дороже</option>
+              <option value="name">По названию</option>
+            </select>
+          </div>
+
+          <div class="filters-form__actions">
+            <button class="button button--primary" type="submit">Применить</button>
+            <button class="button button--secondary" type="reset">Сбросить</button>
+          </div>
         </form>
       </aside>
 
-      <section class="catalog-products">
-        <h2>Все товары <span>(12)</span></h2>
-        <div class="products-grid">
-          <article class="product-card" data-category="equipment" data-price="12990">
-            <div class="product-card__image-wrapper"><span class="product-card__badge">Хит</span><img class="product-card__image" src="images/hockey-stick.jpg" alt="Хоккейная клюшка"></div>
-            <p class="product-card__category">Инвентарь</p><h3 class="product-card__title">Хоккейная клюшка</h3>
-            <p class="product-card__description">Лёгкая клюшка для точных передач и мощных бросков.</p><p class="product-card__price">12 990 руб.</p>
-            <a class="button button--primary" href="index.html#popular">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="protection" data-price="14990">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/hockey-chest.jpg" alt="Хоккейный нагрудник"></div>
-            <p class="product-card__category">Защита</p><h3 class="product-card__title">Хоккейный нагрудник</h3>
-            <p class="product-card__description">Защита корпуса и плеч для тренировок и матчей.</p><p class="product-card__price">14 990 руб.</p>
-            <a class="button button--primary" href="index.html#popular">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="protection" data-price="9990">
-            <div class="product-card__image-wrapper"><span class="product-card__badge product-card__badge--new">Популярный</span><img class="product-card__image" src="images/hockey-helmet.jpg" alt="Хоккейный шлем"></div>
-            <p class="product-card__category">Защита</p><h3 class="product-card__title">Хоккейный шлем</h3>
-            <p class="product-card__description">Шлем с защитной решёткой и регулировкой посадки.</p><p class="product-card__price">9 990 руб.</p>
-            <a class="button button--primary" href="index.html#popular">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="clothing" data-price="5990">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/category-thermal.jpg" alt="Хоккейное термобельё"></div>
-            <p class="product-card__category">Одежда</p><h3 class="product-card__title">Термобельё</h3>
-            <p class="product-card__description">Комплект базового слоя для комфорта во время тренировок.</p><p class="product-card__price">5 990 руб.</p>
-            <a class="button button--primary" href="contacts.html">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="clothing" data-price="2490">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/category-gamashi.jpg" alt="Хоккейные гамаши"></div>
-            <p class="product-card__category">Одежда</p><h3 class="product-card__title">Гамаши</h3>
-            <p class="product-card__description">Эластичные гамаши для фиксации щитков.</p><p class="product-card__price">2 490 руб.</p>
-            <a class="button button--primary" href="contacts.html">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="protection" data-price="8990">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/category-gloves.jpg" alt="Хоккейные перчатки"></div>
-            <p class="product-card__category">Защита</p><h3 class="product-card__title">Хоккейные перчатки</h3>
-            <p class="product-card__description">Защита кистей и пальцев с гибкой посадкой.</p><p class="product-card__price">8 990 руб.</p>
-            <a class="button button--primary" href="contacts.html">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="protection" data-price="3990">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/category-visor.jpg" alt="Визор для хоккейного шлема"></div>
-            <p class="product-card__category">Защита</p><h3 class="product-card__title">Визор</h3>
-            <p class="product-card__description">Прозрачный защитный экран для хоккейного шлема.</p><p class="product-card__price">3 990 руб.</p>
-            <a class="button button--primary" href="contacts.html">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="protection" data-price="6990">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/category-elbow-pads.jpg" alt="Хоккейные налокотники"></div>
-            <p class="product-card__category">Защита</p><h3 class="product-card__title">Налокотники</h3>
-            <p class="product-card__description">Защитные налокотники с амортизирующими вставками.</p><p class="product-card__price">6 990 руб.</p>
-            <a class="button button--primary" href="contacts.html">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="protection" data-price="9990">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/category-hockey-shorts.jpg" alt="Хоккейные шорты"></div>
-            <p class="product-card__category">Защита</p><h3 class="product-card__title">Хоккейные шорты</h3>
-            <p class="product-card__description">Защитные шорты с усиленными зонами бёдер и копчика.</p><p class="product-card__price">9 990 руб.</p>
-            <a class="button button--primary" href="contacts.html">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="protection" data-price="8490">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/category-shin-guards.jpg" alt="Хоккейные щитки"></div>
-            <p class="product-card__category">Защита</p><h3 class="product-card__title">Щитки</h3>
-            <p class="product-card__description">Щитки для защиты голени и коленного сустава.</p><p class="product-card__price">8 490 руб.</p>
-            <a class="button button--primary" href="contacts.html">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="equipment" data-price="24990">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/category-skates.jpg" alt="Хоккейные коньки"></div>
-            <p class="product-card__category">Инвентарь</p><h3 class="product-card__title">Хоккейные коньки</h3>
-            <p class="product-card__description">Коньки с поддержкой голеностопа для игры на льду.</p><p class="product-card__price">24 990 руб.</p>
-            <a class="button button--primary" href="contacts.html">Подробнее</a>
-          </article>
-          <article class="product-card" data-category="clothing" data-price="4990">
-            <div class="product-card__image-wrapper"><img class="product-card__image" src="images/category-jersey.jpg" alt="Хоккейный джерси"></div>
-            <p class="product-card__category">Одежда</p><h3 class="product-card__title">Джерси</h3>
-            <p class="product-card__description">Хоккейная игровая майка для тренировок и матчей.</p><p class="product-card__price">4 990 руб.</p>
-            <a class="button button--primary" href="contacts.html">Подробнее</a>
-          </article>
+      <section class="catalog-products" aria-labelledby="products-title">
+        <div class="catalog-products__header">
+          <h2 class="catalog-products__title" id="products-title">Товары</h2>
+          <p class="catalog-products__count" id="products-count" aria-live="polite">Найдено товаров: 12</p>
+        </div>
+
+        <ul class="products-grid" id="products-grid">
+          <li data-product-item>
+            <article class="product-card" data-category="equipment" data-price="12990" data-name="Хоккейная клюшка">
+              <div class="product-card__image-wrapper">
+                <span class="product-card__badge">Хит</span>
+                <picture>
+                  <source type="image/avif" srcset="images/hockey-stick-400.avif 400w, images/hockey-stick-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/hockey-stick-400.webp 400w, images/hockey-stick-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/hockey-stick-800.jpg" srcset="images/hockey-stick-400.jpg 400w, images/hockey-stick-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Композитная хоккейная клюшка с чёрно-красным древком" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Инвентарь</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=stick">Хоккейная клюшка</a></h3>
+              <p class="product-card__description">Лёгкая клюшка для точных передач и мощных бросков.</p>
+              <p class="product-card__price">12 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=stick">Подробнее<span class="visually-hidden"> о товаре «Хоккейная клюшка»</span></a>
+                <a class="button button--primary" href="order.html?product=stick">Заказать<span class="visually-hidden"> «Хоккейная клюшка»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="protection" data-price="14990" data-name="Хоккейный нагрудник">
+              <div class="product-card__image-wrapper">
+                <span class="product-card__badge product-card__badge--new">Новинка</span>
+                <picture>
+                  <source type="image/avif" srcset="images/hockey-chest-400.avif 400w, images/hockey-chest-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/hockey-chest-400.webp 400w, images/hockey-chest-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/hockey-chest-800.jpg" srcset="images/hockey-chest-400.jpg 400w, images/hockey-chest-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Чёрно-серый хоккейный нагрудник с усиленными плечами" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Защита</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=chest">Хоккейный нагрудник</a></h3>
+              <p class="product-card__description">Защита корпуса и плеч для тренировок и матчей.</p>
+              <p class="product-card__price">14 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=chest">Подробнее<span class="visually-hidden"> о товаре «Хоккейный нагрудник»</span></a>
+                <a class="button button--primary" href="order.html?product=chest">Заказать<span class="visually-hidden"> «Хоккейный нагрудник»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="protection" data-price="9990" data-name="Хоккейный шлем">
+              <div class="product-card__image-wrapper">
+                <span class="product-card__badge product-card__badge--discount">Популярный</span>
+                <picture>
+                  <source type="image/avif" srcset="images/hockey-helmet-400.avif 400w, images/hockey-helmet-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/hockey-helmet-400.webp 400w, images/hockey-helmet-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/hockey-helmet-800.jpg" srcset="images/hockey-helmet-400.jpg 400w, images/hockey-helmet-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Золотистый хоккейный шлем с белыми внутренними вставками" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Защита</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=helmet">Хоккейный шлем</a></h3>
+              <p class="product-card__description">Шлем с регулировкой посадки и совместимостью с визором.</p>
+              <p class="product-card__price">9 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=helmet">Подробнее<span class="visually-hidden"> о товаре «Хоккейный шлем»</span></a>
+                <a class="button button--primary" href="order.html?product=helmet">Заказать<span class="visually-hidden"> «Хоккейный шлем»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="clothing" data-price="5990" data-name="Термобельё">
+              <div class="product-card__image-wrapper">
+                <picture>
+                  <source type="image/avif" srcset="images/category-thermal-400.avif 400w, images/category-thermal-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/category-thermal-400.webp 400w, images/category-thermal-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/category-thermal-800.jpg" srcset="images/category-thermal-400.jpg 400w, images/category-thermal-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Чёрный комплект компрессионного термобелья: лонгслив и брюки" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Одежда</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=thermal">Термобельё</a></h3>
+              <p class="product-card__description">Комплект базового слоя для комфорта во время тренировок.</p>
+              <p class="product-card__price">5 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=thermal">Подробнее<span class="visually-hidden"> о товаре «Термобельё»</span></a>
+                <a class="button button--primary" href="order.html?product=thermal">Заказать<span class="visually-hidden"> «Термобельё»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="clothing" data-price="2490" data-name="Гамаши">
+              <div class="product-card__image-wrapper">
+                <picture>
+                  <source type="image/avif" srcset="images/category-gamashi-400.avif 400w, images/category-gamashi-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/category-gamashi-400.webp 400w, images/category-gamashi-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/category-gamashi-800.jpg" srcset="images/category-gamashi-400.jpg 400w, images/category-gamashi-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Пара чёрных хоккейных гамаш" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Одежда</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=gamashi">Гамаши</a></h3>
+              <p class="product-card__description">Эластичные гамаши для фиксации щитков.</p>
+              <p class="product-card__price">2 490 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=gamashi">Подробнее<span class="visually-hidden"> о товаре «Гамаши»</span></a>
+                <a class="button button--primary" href="order.html?product=gamashi">Заказать<span class="visually-hidden"> «Гамаши»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="protection" data-price="8990" data-name="Хоккейные перчатки">
+              <div class="product-card__image-wrapper">
+                <picture>
+                  <source type="image/avif" srcset="images/category-gloves-400.avif 400w, images/category-gloves-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/category-gloves-400.webp 400w, images/category-gloves-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/category-gloves-800.jpg" srcset="images/category-gloves-400.jpg 400w, images/category-gloves-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Пара чёрных хоккейных краг с сегментированной защитой" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Защита</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=gloves">Хоккейные перчатки</a></h3>
+              <p class="product-card__description">Защита кистей и пальцев с гибкой посадкой.</p>
+              <p class="product-card__price">8 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=gloves">Подробнее<span class="visually-hidden"> о товаре «Хоккейные перчатки»</span></a>
+                <a class="button button--primary" href="order.html?product=gloves">Заказать<span class="visually-hidden"> «Хоккейные перчатки»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="protection" data-price="3990" data-name="Визор">
+              <div class="product-card__image-wrapper">
+                <picture>
+                  <source type="image/avif" srcset="images/category-visor-400.avif 400w, images/category-visor-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/category-visor-400.webp 400w, images/category-visor-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/category-visor-800.jpg" srcset="images/category-visor-400.jpg 400w, images/category-visor-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Прозрачный поликарбонатный визор для хоккейного шлема" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Защита</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=visor">Визор</a></h3>
+              <p class="product-card__description">Прозрачный защитный экран для хоккейного шлема.</p>
+              <p class="product-card__price">3 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=visor">Подробнее<span class="visually-hidden"> о товаре «Визор»</span></a>
+                <a class="button button--primary" href="order.html?product=visor">Заказать<span class="visually-hidden"> «Визор»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="protection" data-price="6990" data-name="Налокотники">
+              <div class="product-card__image-wrapper">
+                <picture>
+                  <source type="image/avif" srcset="images/category-elbow-pads-400.avif 400w, images/category-elbow-pads-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/category-elbow-pads-400.webp 400w, images/category-elbow-pads-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/category-elbow-pads-800.jpg" srcset="images/category-elbow-pads-400.jpg 400w, images/category-elbow-pads-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Пара чёрных хоккейных налокотников с жёсткими чашками" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Защита</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=elbow">Налокотники</a></h3>
+              <p class="product-card__description">Защитные налокотники с амортизирующими вставками.</p>
+              <p class="product-card__price">6 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=elbow">Подробнее<span class="visually-hidden"> о товаре «Налокотники»</span></a>
+                <a class="button button--primary" href="order.html?product=elbow">Заказать<span class="visually-hidden"> «Налокотники»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="protection" data-price="9990" data-name="Хоккейные шорты">
+              <div class="product-card__image-wrapper">
+                <picture>
+                  <source type="image/avif" srcset="images/category-hockey-shorts-400.avif 400w, images/category-hockey-shorts-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/category-hockey-shorts-400.webp 400w, images/category-hockey-shorts-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/category-hockey-shorts-800.jpg" srcset="images/category-hockey-shorts-400.jpg 400w, images/category-hockey-shorts-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Чёрные хоккейные шорты с защитными вставками" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Защита</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=shorts">Хоккейные шорты</a></h3>
+              <p class="product-card__description">Защитные шорты с усиленными зонами бёдер и копчика.</p>
+              <p class="product-card__price">9 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=shorts">Подробнее<span class="visually-hidden"> о товаре «Хоккейные шорты»</span></a>
+                <a class="button button--primary" href="order.html?product=shorts">Заказать<span class="visually-hidden"> «Хоккейные шорты»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="protection" data-price="8490" data-name="Щитки">
+              <div class="product-card__image-wrapper">
+                <picture>
+                  <source type="image/avif" srcset="images/category-shin-guards-400.avif 400w, images/category-shin-guards-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/category-shin-guards-400.webp 400w, images/category-shin-guards-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/category-shin-guards-800.jpg" srcset="images/category-shin-guards-400.jpg 400w, images/category-shin-guards-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Пара чёрных хоккейных щитков для голени и колена" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Защита</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=shin">Щитки</a></h3>
+              <p class="product-card__description">Щитки для защиты голени и коленного сустава.</p>
+              <p class="product-card__price">8 490 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=shin">Подробнее<span class="visually-hidden"> о товаре «Щитки»</span></a>
+                <a class="button button--primary" href="order.html?product=shin">Заказать<span class="visually-hidden"> «Щитки»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="equipment" data-price="24990" data-name="Хоккейные коньки">
+              <div class="product-card__image-wrapper">
+                <picture>
+                  <source type="image/avif" srcset="images/category-skates-400.avif 400w, images/category-skates-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/category-skates-400.webp 400w, images/category-skates-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/category-skates-800.jpg" srcset="images/category-skates-400.jpg 400w, images/category-skates-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Чёрный хоккейный конёк с белой шнуровкой и стальным лезвием" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Инвентарь</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=skates">Хоккейные коньки</a></h3>
+              <p class="product-card__description">Коньки с поддержкой голеностопа для игры на льду.</p>
+              <p class="product-card__price">24 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=skates">Подробнее<span class="visually-hidden"> о товаре «Хоккейные коньки»</span></a>
+                <a class="button button--primary" href="order.html?product=skates">Заказать<span class="visually-hidden"> «Хоккейные коньки»</span></a>
+              </div>
+            </article>
+          </li>
+          <li data-product-item>
+            <article class="product-card" data-category="clothing" data-price="4990" data-name="Джерси">
+              <div class="product-card__image-wrapper">
+                <picture>
+                  <source type="image/avif" srcset="images/category-jersey-400.avif 400w, images/category-jersey-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <source type="image/webp" srcset="images/category-jersey-400.webp 400w, images/category-jersey-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                  <img class="product-card__image" src="images/category-jersey-800.jpg" srcset="images/category-jersey-400.jpg 400w, images/category-jersey-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Тёмно-синее хоккейное джерси с белыми полосами и эмблемой рыси" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <p class="product-card__category">Одежда</p>
+              <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=jersey">Джерси</a></h3>
+              <p class="product-card__description">Хоккейная игровая майка для тренировок и матчей.</p>
+              <p class="product-card__price">4 990 ₽</p>
+              <div class="product-card__actions">
+                <a class="button button--secondary" href="product.html?id=jersey">Подробнее<span class="visually-hidden"> о товаре «Джерси»</span></a>
+                <a class="button button--primary" href="order.html?product=jersey">Заказать<span class="visually-hidden"> «Джерси»</span></a>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <div class="catalog-empty" id="catalog-empty" hidden>
+          <p>По выбранным условиям товаров не найдено.</p>
+          <button class="button button--secondary" type="button" data-filters-reset>Сбросить фильтры</button>
         </div>
       </section>
-    </section>
+    </div>
   </div>
 </main>
 
-<footer class="site-footer" id="contacts">
-  <div class="container">
-    <h2 class="site-footer__title">IceForce</h2>
-    <p>Хоккейная экипировка для тренировок и соревнований.</p>
-    <p>Email: <a href="mailto:info@iceforce.ru">info@iceforce.ru</a></p>
-    <p class="site-footer__copyright">© 2026 IceForce. Учебный проект.</p>
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <div>
+      <p class="site-footer__title">IceForce</p>
+      <p>Хоккейная экипировка для тренировок и матчей.</p>
+    </div>
+
+    <nav aria-label="Дополнительная навигация">
+      <ul class="site-footer__links">
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="order.html">Оформить заявку</a></li>
+        <li><a href="delivery.html">Доставка и оплата</a></li>
+        <li><a href="size-guide.html">Подбор экипировки</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <p>Email: <a href="mailto:info@iceforce.ru">info@iceforce.ru</a></p>
+      <p>Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></p>
+      <p><a href="contacts.html">Все контакты</a></p>
+    </div>
+
+    <p class="site-footer__copyright">© 2026 IceForce. Учебный проект — Дончу Артём, ЭФБО-03-25.</p>
   </div>
 </footer>
 
-<button class="scroll-top" id="scroll-top" type="button">Наверх</button>
-<script src="js/main.js" defer></script>
-<script src="js/size-feature.js" defer></script>
+<button class="scroll-top" id="scroll-top" type="button">
+  <span aria-hidden="true">↑</span> Наверх
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 </body>
 </html>
