@@ -1,0 +1,375 @@
+/* =========================================================
+   IceForce — адаптивные стили
+   Подход Mobile First: базовые (мобильные) стили лежат в style.css,
+   здесь только расширения для экранов шире через min-width.
+
+   Контрольные точки:
+     480px  — крупные телефоны в альбомной ориентации
+     768px  — планшеты
+     1024px — небольшой desktop
+     1440px — широкий desktop
+   Проверенные ширины: 360, 430, 768, 1024, 1440px.
+   ========================================================= */
+
+/* ---------- ≥ 480px ---------- */
+@media (min-width: 480px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  /* Hero: кнопки встают в строку */
+  .hero__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Сетка карточек: 2 колонки */
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* На главной «хит» занимает всю строку, остальные — по половине */
+  .products-grid--popular > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .products-grid--popular > :first-child .product-card__image {
+    height: 260px;
+  }
+
+  .category-carousel__item {
+    flex-basis: 240px;
+  }
+
+  .category-carousel--slides .category-carousel__item {
+    flex-basis: 190px;
+  }
+
+  /* Таблица характеристик: обычная таблица в контейнере
+     с собственной горизонтальной прокруткой */
+  .product-table {
+    display: table;
+    min-width: 560px;
+  }
+
+  .product-table thead {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    display: table-header-group;
+  }
+
+  .product-table tbody {
+    display: table-row-group;
+  }
+
+  .product-table tr {
+    display: table-row;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  .product-table th,
+  .product-table td {
+    display: table-cell;
+    padding: 12px var(--space-md);
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .product-table td::before {
+    content: none;
+  }
+
+  .product-table thead th {
+    color: var(--color-white);
+    background: var(--color-primary);
+  }
+
+  .product-table thead th:first-child {
+    border-top-left-radius: var(--radius-sm);
+  }
+
+  .product-table thead th:last-child {
+    border-top-right-radius: var(--radius-sm);
+  }
+
+  .product-table tbody tr:nth-child(even) {
+    background: var(--color-bg-secondary);
+  }
+
+  .product-table th[scope="row"] {
+    margin: 0;
+    width: 32%;
+  }
+
+  /* Формы: кнопки в строку */
+  .order-form__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .product__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .toast {
+    left: auto;
+    max-width: 420px;
+  }
+}
+
+/* ---------- ≥ 768px: планшет ---------- */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 24px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .hero {
+    min-height: 420px;
+    margin-top: var(--space-lg);
+  }
+
+  .hero__content {
+    padding: 60px var(--space-xl);
+  }
+
+  .hero__title {
+    font-size: 40px;
+  }
+
+  .hero__text {
+    font-size: 18px;
+  }
+
+  .section {
+    padding-top: 56px;
+  }
+
+  /* Преимущества: 3 колонки */
+  .advantages__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* На главной 3 карточки в ряд */
+  .products-grid--popular {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .products-grid--popular > :first-child {
+    grid-column: auto;
+  }
+
+  .products-grid--popular > :first-child .product-card__image {
+    height: 220px;
+  }
+
+  .category-carousel__item {
+    flex-basis: 260px;
+  }
+
+  .category-carousel--slides .category-carousel__item {
+    flex-basis: 210px;
+  }
+
+  /* Страница товара: фото и описание рядом */
+  .product {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    align-items: start;
+    gap: var(--space-xl);
+  }
+
+  .product-table {
+    min-width: 0;
+  }
+
+  /* Форма: 2 колонки, широкие поля на всю строку */
+  .order-form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .order-form__field--wide {
+    grid-column: 1 / -1;
+  }
+
+  .order-form__fieldset {
+    padding: var(--space-lg);
+  }
+
+  .order-dialog__content {
+    padding: var(--space-xl);
+  }
+
+  /* Доставка и подбор экипировки: карточки в 2 колонки */
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-banner {
+    padding: 42px 32px;
+  }
+
+  .page-banner h1 {
+    font-size: 40px;
+  }
+
+  .info-card {
+    padding: 26px;
+  }
+
+  /* Подвал: 3 колонки */
+  .site-footer__inner {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+
+  .site-footer__copyright {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer__links {
+    flex-direction: column;
+  }
+
+  .site-footer__links a {
+    padding: 4px 0;
+  }
+}
+
+/* ---------- ≥ 1024px: desktop ---------- */
+@media (min-width: 1024px) {
+  /* Навигация в строку, кнопка «Меню» не нужна */
+  .js .site-header__menu-button {
+    display: none;
+  }
+
+  .site-nav,
+  .js .site-nav {
+    display: block;
+    flex-basis: auto;
+  }
+
+  .site-nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 0;
+  }
+
+  .site-nav__link {
+    padding: var(--space-sm) 14px;
+  }
+
+  .hero {
+    min-height: 460px;
+  }
+
+  .hero__title {
+    font-size: 46px;
+  }
+
+  /* Каталог: боковой фильтр + сетка */
+  .catalog-layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .catalog-filters {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-md));
+  }
+
+  .js .catalog-filters__toggle {
+    display: none;
+  }
+
+  .filters-form,
+  .js .filters-form {
+    display: flex;
+  }
+
+  /* Страница заявки: форма + сводка сбоку */
+  .order-layout {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: start;
+  }
+
+  .order-summary {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-md));
+  }
+
+  /* Контакты: информация и форма рядом */
+  .contacts-layout {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: start;
+  }
+
+  /* Шаги оформления заказа — 4 в ряд */
+  .info-grid--steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .scroll-top {
+    right: var(--space-lg);
+    bottom: var(--space-lg);
+  }
+}
+
+/* ---------- ≥ 1440px: широкий desktop ---------- */
+@media (min-width: 1440px) {
+  :root {
+    --container-padding: 32px;
+  }
+
+  .hero {
+    min-height: 520px;
+  }
+
+  .hero__title {
+    font-size: 52px;
+  }
+
+  /* В каталоге хватает места на 3 колонки рядом с фильтром */
+  .catalog-products .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .catalog-layout {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .product-card__image {
+    height: 240px;
+  }
+
+  .info-grid--sizes {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Устройства с мышью: карточки чуть «приподнимаются» при наведении */
+@media (hover: hover) and (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .product-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .product-card {
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+}
