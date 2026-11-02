@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Форма заявки на хоккейную экипировку IceForce.">
+  <meta name="theme-color" content="#193d35">
+  <title>Оформление заявки — IceForce</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a class="site-header__logo" href="index.html">IceForce</a>
+
+    <button class="site-header__menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="site-header__menu-icon" aria-hidden="true"></span>
+      Меню
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="index.html">Главная</a></li>
+        <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+        <li><a class="site-nav__link site-nav__link--active" href="order.html" aria-current="page">Оформить заявку</a></li>
+        <li><a class="site-nav__link" href="size-guide.html">Подбор экипировки</a></li>
+        <li><a class="site-nav__link" href="delivery.html">Доставка и оплата</a></li>
+        <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <ol class="breadcrumbs__list">
+      <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
+      <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="catalog.html">Каталог</a></li>
+      <li class="breadcrumbs__item" aria-current="page">Оформление заявки</li>
+    </ol>
+  </nav>
+
+    <header class="page-intro">
+      <h1>Оформление заявки</h1>
+      <p>Заполните форму — менеджер свяжется с вами, чтобы подтвердить наличие и стоимость. Поля, отмеченные <span class="order-form__required" aria-hidden="true">*</span><span class="visually-hidden">звёздочкой</span>, обязательны.</p>
+    </header>
+
+    <div class="order-layout">
+      <form class="order-form" id="order-page-form" action="order.html" method="get" data-success="Заявка отправлена! Менеджер свяжется с вами в течение рабочего дня.">
+
+        <fieldset class="order-form__fieldset">
+          <legend class="order-form__legend">Товар</legend>
+          <div class="order-form__grid">
+            <div class="order-form__field order-form__field--wide">
+              <label class="order-form__label" for="order-product">Товар <span class="order-form__required" aria-hidden="true">*</span></label>
+              <select class="order-form__select" id="order-product" name="product" required aria-describedby="order-product-error">
+                <option value="">Выберите товар</option>
+                <option value="stick">Хоккейная клюшка — 12 990 ₽</option>
+                <option value="chest">Хоккейный нагрудник — 14 990 ₽</option>
+                <option value="helmet">Хоккейный шлем — 9 990 ₽</option>
+                <option value="thermal">Термобельё — 5 990 ₽</option>
+                <option value="gamashi">Гамаши — 2 490 ₽</option>
+                <option value="gloves">Хоккейные перчатки — 8 990 ₽</option>
+                <option value="visor">Визор — 3 990 ₽</option>
+                <option value="elbow">Налокотники — 6 990 ₽</option>
+                <option value="shorts">Хоккейные шорты — 9 990 ₽</option>
+                <option value="shin">Щитки — 8 490 ₽</option>
+                <option value="skates">Хоккейные коньки — 24 990 ₽</option>
+                <option value="jersey">Джерси — 4 990 ₽</option>
+              </select>
+              <p class="order-form__error" id="order-product-error"></p>
+            </div>
+
+            <div class="order-form__field">
+              <label class="order-form__label" for="order-size">Размерная категория <span class="order-form__required" aria-hidden="true">*</span></label>
+              <select class="order-form__select" id="order-size" name="size" required aria-describedby="order-size-hint order-size-error">
+                <option value="">Выберите размер</option>
+                <option value="YTH">Youth (YTH) — детский</option>
+                <option value="JR">Junior (JR) — юниорский</option>
+                <option value="INT">Intermediate (INT) — промежуточный</option>
+                <option value="SR">Senior (SR) — взрослый</option>
+              </select>
+              <p class="order-form__hint" id="order-size-hint">Не уверены? <a href="size-guide.html">Как подобрать размер</a></p>
+              <p class="order-form__error" id="order-size-error"></p>
+            </div>
+
+            <div class="order-form__field">
+              <label class="order-form__label" for="order-quantity">Количество <span class="order-form__required" aria-hidden="true">*</span></label>
+              <input class="order-form__input" id="order-quantity" type="number" name="quantity" min="1" max="10" value="1" inputmode="numeric" required aria-describedby="order-quantity-hint order-quantity-error">
+              <p class="order-form__hint" id="order-quantity-hint">От 1 до 10 штук</p>
+              <p class="order-form__error" id="order-quantity-error"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="order-form__fieldset">
+          <legend class="order-form__legend">Контактные данные</legend>
+          <div class="order-form__grid">
+            <div class="order-form__field order-form__field--wide">
+              <label class="order-form__label" for="order-name">Имя и фамилия <span class="order-form__required" aria-hidden="true">*</span></label>
+              <input class="order-form__input" id="order-name" type="text" name="name" autocomplete="name" required aria-describedby="order-name-error">
+              <p class="order-form__error" id="order-name-error"></p>
+            </div>
+            <div class="order-form__field">
+              <label class="order-form__label" for="order-phone">Телефон <span class="order-form__required" aria-hidden="true">*</span></label>
+              <input class="order-form__input" id="order-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9+()\-\s]{10,20}" required aria-describedby="order-phone-hint order-phone-error">
+              <p class="order-form__hint" id="order-phone-hint">Например: +7 999 000-00-00</p>
+              <p class="order-form__error" id="order-phone-error"></p>
+            </div>
+            <div class="order-form__field">
+              <label class="order-form__label" for="order-email">Email <span class="order-form__required" aria-hidden="true">*</span></label>
+              <input class="order-form__input" id="order-email" type="email" name="email" autocomplete="email" required aria-describedby="order-email-hint order-email-error">
+              <p class="order-form__hint" id="order-email-hint">Пришлём подтверждение заявки</p>
+              <p class="order-form__error" id="order-email-error"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="order-form__fieldset">
+          <legend class="order-form__legend">Получение</legend>
+          <div class="order-form__grid">
+            <fieldset class="order-form__field order-form__field--wide order-form__radio-group">
+              <legend class="order-form__label">Способ получения</legend>
+              <div class="order-form__choices">
+                <label class="order-form__choice">
+                  <input type="radio" name="delivery" value="pickup" checked>
+                  <span>Самовывоз</span>
+                </label>
+                <label class="order-form__choice">
+                  <input type="radio" name="delivery" value="courier">
+                  <span>Курьерская доставка</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="order-form__field order-form__field--wide" id="order-address-field">
+              <label class="order-form__label" for="order-address">Адрес доставки</label>
+              <textarea class="order-form__textarea" id="order-address" name="address" rows="2" autocomplete="street-address" aria-describedby="order-address-hint order-address-error"></textarea>
+              <p class="order-form__hint" id="order-address-hint">Нужен только для курьерской доставки</p>
+              <p class="order-form__error" id="order-address-error"></p>
+            </div>
+
+            <div class="order-form__field">
+              <label class="order-form__label" for="order-date">Желаемая дата</label>
+              <input class="order-form__input" id="order-date" type="date" name="date" aria-describedby="order-date-hint order-date-error">
+              <p class="order-form__hint" id="order-date-hint">Дату подтвердит менеджер</p>
+              <p class="order-form__error" id="order-date-error"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-comment">Комментарий</label>
+          <textarea class="order-form__textarea" id="order-comment" name="comment" rows="4" aria-describedby="order-comment-hint"></textarea>
+          <p class="order-form__hint" id="order-comment-hint">Например, хват клюшки или удобное время звонка</p>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__checkbox">
+            <input type="checkbox" name="agreement" required aria-describedby="order-agreement-error">
+            <span>Я согласен на обработку персональных данных <span class="order-form__required" aria-hidden="true">*</span></span>
+          </label>
+          <p class="order-form__error" id="order-agreement-error"></p>
+        </div>
+
+        <div class="order-form__actions">
+          <button class="button button--primary" type="submit">Отправить заявку</button>
+          <button class="button button--secondary" type="reset">Очистить форму</button>
+        </div>
+      </form>
+
+      <aside class="order-summary" aria-labelledby="summary-title">
+        <h2 class="order-summary__title" id="summary-title">Ваш заказ</h2>
+        <dl class="order-summary__list">
+          <dt>Товар</dt>
+          <dd id="summary-product">не выбран</dd>
+          <dt>Размер</dt>
+          <dd id="summary-size">—</dd>
+          <dt>Количество</dt>
+          <dd id="summary-quantity">1</dd>
+          <dt>Получение</dt>
+          <dd id="summary-delivery">Самовывоз</dd>
+        </dl>
+        <p class="order-summary__total">Итого: <span id="summary-total">0 ₽</span></p>
+        <p class="order-form__note">Это демонстрационная форма учебного проекта — реальный заказ не создаётся.</p>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <div>
+      <p class="site-footer__title">IceForce</p>
+      <p>Хоккейная экипировка для тренировок и матчей.</p>
+    </div>
+
+    <nav aria-label="Дополнительная навигация">
+      <ul class="site-footer__links">
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="order.html">Оформить заявку</a></li>
+        <li><a href="delivery.html">Доставка и оплата</a></li>
+        <li><a href="size-guide.html">Подбор экипировки</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <p>Email: <a href="mailto:info@iceforce.ru">info@iceforce.ru</a></p>
+      <p>Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></p>
+      <p><a href="contacts.html">Все контакты</a></p>
+    </div>
+
+    <p class="site-footer__copyright">© 2026 IceForce. Учебный проект — Дончу Артём, ЭФБО-03-25.</p>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scroll-top" type="button">
+  <span aria-hidden="true">↑</span> Наверх
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

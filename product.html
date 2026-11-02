@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Страница товара IceForce: фото, описание и таблица характеристик.">
+  <meta name="theme-color" content="#193d35">
+  <title>Хоккейная клюшка — IceForce</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a class="site-header__logo" href="index.html">IceForce</a>
+
+    <button class="site-header__menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="site-header__menu-icon" aria-hidden="true"></span>
+      Меню
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="index.html">Главная</a></li>
+        <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+        <li><a class="site-nav__link" href="order.html">Оформить заявку</a></li>
+        <li><a class="site-nav__link" href="size-guide.html">Подбор экипировки</a></li>
+        <li><a class="site-nav__link" href="delivery.html">Доставка и оплата</a></li>
+        <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <ol class="breadcrumbs__list">
+      <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
+      <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="catalog.html">Каталог</a></li>
+      <li class="breadcrumbs__item" aria-current="page" id="breadcrumb-product">Хоккейная клюшка</li>
+    </ol>
+  </nav>
+
+    <article class="product" id="product" aria-labelledby="product-title">
+      <figure class="product__figure" id="product-figure">
+        <picture>
+          <source type="image/avif" srcset="images/hockey-stick-400.avif 400w, images/hockey-stick-800.avif 800w" sizes="(min-width: 1280px) 500px, (min-width: 768px) 40vw, 90vw">
+          <source type="image/webp" srcset="images/hockey-stick-400.webp 400w, images/hockey-stick-800.webp 800w" sizes="(min-width: 1280px) 500px, (min-width: 768px) 40vw, 90vw">
+          <img class="product__image" src="images/hockey-stick-800.jpg" srcset="images/hockey-stick-400.jpg 400w, images/hockey-stick-800.jpg 800w" sizes="(min-width: 1280px) 500px, (min-width: 768px) 40vw, 90vw" width="800" height="800" alt="Композитная хоккейная клюшка с чёрно-красным древком" decoding="async">
+        </picture>
+      </figure>
+
+      <div class="product__info">
+        <p class="product__category" id="product-category">Инвентарь</p>
+        <h1 class="product__title" id="product-title">Хоккейная клюшка</h1>
+        <p class="product__price" id="product-price">12 990 ₽</p>
+        <p class="product__lead" id="product-lead">Композитная клюшка со средним прогибом: быстро заряжается при броске и уверенно держит шайбу при приёме.</p>
+        <ul class="product__features" id="product-features">
+          <li>Композитное древко и крюк</li>
+          <li>Средняя точка прогиба</li>
+          <li>Шероховатое покрытие для надёжного хвата</li>
+        </ul>
+        <p class="product__sizes">Размерные категории: <strong id="product-sizes">JR, INT, SR</strong></p>
+        <div class="product__actions">
+          <a class="button button--primary" id="product-order-link" href="order.html?product=stick">Оформить заявку</a>
+          <a class="button button--secondary" href="size-guide.html">Как подобрать размер</a>
+        </div>
+      </div>
+    </article>
+
+    <section class="product-section" aria-labelledby="specs-title">
+      <h2 class="section-title" id="specs-title">Характеристики</h2>
+      <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="specs-title">
+        <table class="product-table">
+          <caption class="visually-hidden" id="product-table-caption">Характеристики товара «Хоккейная клюшка»</caption>
+          <thead>
+            <tr>
+              <th scope="col">Параметр</th>
+              <th scope="col">Значение</th>
+              <th scope="col">Комментарий</th>
+            </tr>
+          </thead>
+          <tbody id="product-specs">
+            <tr>
+              <th scope="row">Размерная категория</th>
+              <td data-label="Значение">SR</td>
+              <td data-label="Комментарий">Для взрослых игроков</td>
+            </tr>
+            <tr>
+              <th scope="row">Длина</th>
+              <td data-label="Значение">152 см</td>
+              <td data-label="Комментарий">Можно укоротить под рост</td>
+            </tr>
+            <tr>
+              <th scope="row">Жёсткость (флекс)</th>
+              <td data-label="Значение">75</td>
+              <td data-label="Комментарий">Подходит игрокам весом 70–85 кг</td>
+            </tr>
+            <tr>
+              <th scope="row">Загиб крюка</th>
+              <td data-label="Значение">P92</td>
+              <td data-label="Комментарий">Универсальный загиб для бросков и передач</td>
+            </tr>
+            <tr>
+              <th scope="row">Хват</th>
+              <td data-label="Значение">Левый / правый</td>
+              <td data-label="Комментарий">Выбирается при оформлении заявки</td>
+            </tr>
+            <tr>
+              <th scope="row">Материал</th>
+              <td data-label="Значение">Композит (карбон)</td>
+              <td data-label="Комментарий">Лёгкость и прочность</td>
+            </tr>
+            <tr>
+              <th scope="row">Вес</th>
+              <td data-label="Значение">420 г</td>
+              <td data-label="Комментарий">Без обмотки</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="product-section" aria-labelledby="description-title">
+      <h2 class="section-title" id="description-title">Описание</h2>
+      <div id="product-description">
+        <p>Клюшка подходит для игроков, которые много бросают с ходу и в одно касание. Средняя точка прогиба делает её универсальной: одинаково удобно бросать с кистей и щелчком.</p>
+        <p>Перед покупкой проверьте длину: стоя на коньках, верх клюшки должен находиться примерно на уровне подбородка. Лишнюю длину можно укоротить.</p>
+      </div>
+    </section>
+
+    <section class="product-section" aria-labelledby="related-title">
+      <h2 class="section-title" id="related-title">С этим товаром выбирают</h2>
+      <ul class="products-grid products-grid--popular" id="related-products">
+        <li>
+          <article class="product-card" data-category="equipment" data-price="24990" data-name="Хоккейные коньки">
+            <div class="product-card__image-wrapper">
+              <picture>
+                <source type="image/avif" srcset="images/category-skates-400.avif 400w, images/category-skates-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                <source type="image/webp" srcset="images/category-skates-400.webp 400w, images/category-skates-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                <img class="product-card__image" src="images/category-skates-800.jpg" srcset="images/category-skates-400.jpg 400w, images/category-skates-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Чёрный хоккейный конёк с белой шнуровкой и стальным лезвием" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <p class="product-card__category">Инвентарь</p>
+            <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=skates">Хоккейные коньки</a></h3>
+            <p class="product-card__description">Коньки с поддержкой голеностопа для игры на льду.</p>
+            <p class="product-card__price">24 990 ₽</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html?id=skates">Подробнее<span class="visually-hidden"> о товаре «Хоккейные коньки»</span></a>
+              <a class="button button--primary" href="order.html?product=skates">Заказать<span class="visually-hidden"> «Хоккейные коньки»</span></a>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="product-card" data-category="protection" data-price="14990" data-name="Хоккейный нагрудник">
+            <div class="product-card__image-wrapper">
+              <span class="product-card__badge product-card__badge--new">Новинка</span>
+              <picture>
+                <source type="image/avif" srcset="images/hockey-chest-400.avif 400w, images/hockey-chest-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                <source type="image/webp" srcset="images/hockey-chest-400.webp 400w, images/hockey-chest-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                <img class="product-card__image" src="images/hockey-chest-800.jpg" srcset="images/hockey-chest-400.jpg 400w, images/hockey-chest-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Чёрно-серый хоккейный нагрудник с усиленными плечами" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <p class="product-card__category">Защита</p>
+            <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=chest">Хоккейный нагрудник</a></h3>
+            <p class="product-card__description">Защита корпуса и плеч для тренировок и матчей.</p>
+            <p class="product-card__price">14 990 ₽</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html?id=chest">Подробнее<span class="visually-hidden"> о товаре «Хоккейный нагрудник»</span></a>
+              <a class="button button--primary" href="order.html?product=chest">Заказать<span class="visually-hidden"> «Хоккейный нагрудник»</span></a>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="product-card" data-category="protection" data-price="9990" data-name="Хоккейный шлем">
+            <div class="product-card__image-wrapper">
+              <span class="product-card__badge product-card__badge--discount">Популярный</span>
+              <picture>
+                <source type="image/avif" srcset="images/hockey-helmet-400.avif 400w, images/hockey-helmet-800.avif 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                <source type="image/webp" srcset="images/hockey-helmet-400.webp 400w, images/hockey-helmet-800.webp 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw">
+                <img class="product-card__image" src="images/hockey-helmet-800.jpg" srcset="images/hockey-helmet-400.jpg 400w, images/hockey-helmet-800.jpg 800w" sizes="(min-width: 1024px) 300px, (min-width: 480px) 42vw, 82vw" width="800" height="800" alt="Золотистый хоккейный шлем с белыми внутренними вставками" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <p class="product-card__category">Защита</p>
+            <h3 class="product-card__title"><a class="product-card__link" href="product.html?id=helmet">Хоккейный шлем</a></h3>
+            <p class="product-card__description">Шлем с регулировкой посадки и совместимостью с визором.</p>
+            <p class="product-card__price">9 990 ₽</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html?id=helmet">Подробнее<span class="visually-hidden"> о товаре «Хоккейный шлем»</span></a>
+              <a class="button button--primary" href="order.html?product=helmet">Заказать<span class="visually-hidden"> «Хоккейный шлем»</span></a>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <div>
+      <p class="site-footer__title">IceForce</p>
+      <p>Хоккейная экипировка для тренировок и матчей.</p>
+    </div>
+
+    <nav aria-label="Дополнительная навигация">
+      <ul class="site-footer__links">
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="order.html">Оформить заявку</a></li>
+        <li><a href="delivery.html">Доставка и оплата</a></li>
+        <li><a href="size-guide.html">Подбор экипировки</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <p>Email: <a href="mailto:info@iceforce.ru">info@iceforce.ru</a></p>
+      <p>Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></p>
+      <p><a href="contacts.html">Все контакты</a></p>
+    </div>
+
+    <p class="site-footer__copyright">© 2026 IceForce. Учебный проект — Дончу Артём, ЭФБО-03-25.</p>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scroll-top" type="button">
+  <span aria-hidden="true">↑</span> Наверх
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
